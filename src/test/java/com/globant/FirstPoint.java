@@ -14,7 +14,11 @@ public class FirstPoint
         System.out.println("Setting up the Browser Driver");
     }
 
-
+    @BeforeClass
+    public void message()
+    {
+        System.out.println("First point started");
+    }
 
     @Test(priority = 0)
     @Parameters({"username", "password"})
@@ -24,27 +28,33 @@ public class FirstPoint
                 "Username : "+username+" Password : "+password);
     }
 
-    @Test( priority = 1,description = "Check if we go to friends section")
+    @Test( priority = 1,description = "Check if we go to my Profile")
+    public void goToMyProfile()
+    {
+        System.out.println("Going to My profile");
+    }
+
+    @Test( priority = 2,description = "Check if we go to friends section")
     public void goToFriends()
     {
         System.out.println("Going to friends section");
     }
 
-    @Test(priority = 2, description = "Here we select a friend")
+    @Test(priority = 3, description = "Here we select a friend")
     @Parameters({"friend"})
     public void selectFriend(String friend)
     {
         System.out.println("Friend : "+friend+" selected");
     }
 
-    @Test(priority = 3, description = "Delete friend")
+    @Test(priority = 4, description = "Delete friend")
     @Parameters({"friend"})
     public void deleteFriend(String friend)
     {
         System.out.println("Friend : "+friend+" was deleted");
     }
 
-    @Test(priority = 4, description = "Log out")
+    @Test(priority = 5, description = "Log out")
     @Parameters({"username"})
     public void logout(String username)
     {
